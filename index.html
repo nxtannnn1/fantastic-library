@@ -3,31 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Biblioteca Front</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Fantastic Library</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <img src="assets/logo.png" id="logo" alt="" srcset="" />
-    <h1>Lista de Livros</h1>
-    <ul id="lista"></ul>
+    <main>
+      <div class="apresentacao">
+        <img src="assets/logo.png" alt="Logo da Fantastic Library" />
+        <h1>Fantastic Library</h1>
+      </div>
 
-    <h1>Cadastro de Livros</h1>
-    <form id="formCadastro">
-      <input type="text" placeholder="Título" id="title" required />
-      <input type="text" placeholder="Autor" id="author" required />
-      <input type="text" placeholder="ID Internacional" id="isbn" required />
-      <input type="text" placeholder="Ano de Publicação" id="year" required />
-      <label for="genero">Gênero Literário:</label>
-      <select name="genero" id="category">
-        <option value="NOVEL">Romance</option>
-        <option value="FANTASY">Fantasia</option>
-        <option value="ACTION">Ação</option>
-        <option value="THRILLER">Mistério</option>
-        <option value="ADVENTURE">Aventura</option>
-        <option value="ETC">Outros</option>
-      </select>
-      <button type="submit">Cadastrar Livro</button>
-    </form>
-    <script src="script.js"></script>
+      <div class="listarLivros">
+        <div class="secaoDeListagem">
+          <h2>Lista de Livros</h2>
+          <button type="button" id="atualizarLivros">Atualizar Livros</button>
+        </div>
+        <ul id="lista"></ul>
+      </div>
+
+      <form id="formCadastro">
+        <h2>Cadastro de Livros</h2>
+        <input type="text" id="title" placeholder="Título" required />
+        <input type="text" id="author" placeholder="Autor" required />
+        <input type="text" id="isbn" placeholder="ID Internacional" required />
+        <input type="text" id="year" placeholder="Ano de Publicação" required />
+        <select id="category">
+          <option value="NOVEL">Romance</option>
+          <option value="FANTASY">Fantasia</option>
+          <option value="ACTION">Ação</option>
+          <option value="THRILLER">Suspense</option>
+          <option value="ADVENTURE">Aventura</option>
+          <option value="ETC">Outros</option>
+        </select>
+        <button type="submit">Cadastrar Livro</button>
+      </form>
+      <script src="script.js"></script>
+    </main>
   </body>
 </html>
