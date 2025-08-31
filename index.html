@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Front</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="assets/logo.png" id="logo" alt="" srcset="" />
+    <h1>Lista de Livros</h1>
+    <ul id="lista"></ul>
+
+    <h1>Cadastro de Livros</h1>
+    <form id="formCadastro">
+      <input type="text" placeholder="Título" id="title" required />
+      <input type="text" placeholder="Autor" id="author" required />
+      <input type="text" placeholder="ID Internacional" id="isbn" required />
+      <input type="text" placeholder="Ano de Publicação" id="year" required />
+      <label for="genero">Gênero Literário:</label>
+      <select name="genero" id="category">
+        <option value="NOVEL">Romance</option>
+        <option value="FANTASY">Fantasia</option>
+        <option value="ACTION">Ação</option>
+        <option value="THRILLER">Mistério</option>
+        <option value="ADVENTURE">Aventura</option>
+        <option value="ETC">Outros</option>
+      </select>
+      <button type="submit">Cadastrar Livro</button>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
