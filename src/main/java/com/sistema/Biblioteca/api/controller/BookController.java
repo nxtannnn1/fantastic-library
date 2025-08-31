@@ -4,6 +4,7 @@ import com.sistema.Biblioteca.api.dto.BookDTORequest;
 import com.sistema.Biblioteca.api.dto.BookDTOResponse;
 import com.sistema.Biblioteca.application.service.BookService;
 import com.sistema.Biblioteca.exceptions.BookNotFoundException;
+import jakarta.validation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDTOResponse> addBook(@RequestBody BookDTORequest bookDTORequest) { //
+    public ResponseEntity<BookDTOResponse> addBook(@RequestBody @Valid BookDTORequest bookDTORequest) { //
         BookDTOResponse created = bookService.addBook(bookDTORequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }

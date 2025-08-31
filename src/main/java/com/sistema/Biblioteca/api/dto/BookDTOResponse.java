@@ -1,11 +1,9 @@
 package com.sistema.Biblioteca.api.dto;
 
 import com.sistema.Biblioteca.domain.enums.CATEGORY;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
 
 public class BookDTOResponse { //DTO's são objetos utilizados para transportar dados entre a API e o banco de dados, separar responsabilidades entre as camadas da aplicação e garantir mantenabilidade
 //DTO's de Response/Resposta são os retornos do servidor ao cliente/browser
@@ -21,6 +19,7 @@ public class BookDTOResponse { //DTO's são objetos utilizados para transportar 
     private String author;
 
     @NotBlank(message = "Ano do livro não pode ser vazio")
+    @Pattern(regexp = "\\d{4}", message = "Ano deve ter 4 dígitos")
     @Column(name = "publish_year", nullable = false)
     private String year;
 

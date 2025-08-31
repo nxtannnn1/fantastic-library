@@ -23,6 +23,17 @@ public class BookService {
 
     public BookDTOResponse addBook(BookDTORequest bookDTORequest) {
         Book book = BookDTORequestMapper.toEntity(bookDTORequest);
+
+        String yearToInt = book.getYear();
+        if(!yearToInt.matches("\\d{4}")) {
+            throw new IllegalArgumentException("Ano deve ter 4 dígitos");
+        }
+
+        int yearInt = Integer.parseInt(yearToInt);
+        if(yearInt < 1900 || yearInt > 2100){
+            throw new IllegalArgumentException("Ano fora do intervalo permitido");
+        }
+
         Book saved = bookRepository.save(book);
         return BookDTOResponseMapper.toDto(saved);
     }
