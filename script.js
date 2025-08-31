@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function carregarLivros() {
   try {
-    const resposta = await fetch("http://localhost:8080/books");
+    const resposta = await fetch("http://localhost:8081/books");
     livros = await resposta.json();
 
     const lista = document.getElementById("lista");
@@ -82,7 +82,7 @@ function resetFormulario() {
 async function cadastrarLivro() {
   try {
     const livro = pegarDadosFormulario();
-    const resposta = await fetch("http://localhost:8080/books", {
+    const resposta = await fetch("http://localhost:8081/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(livro)
@@ -101,7 +101,7 @@ async function cadastrarLivro() {
 async function atualizarLivro(id) {
   try {
     const livro = pegarDadosFormulario();
-    const resposta = await fetch(`http://localhost:8080/books/${id}`, {
+    const resposta = await fetch(`http://localhost:8081/books/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(livro)
@@ -121,7 +121,7 @@ async function excluirLivro(id) {
   if (!confirm("Deseja realmente excluir este livro?")) return;
 
   try {
-    const resposta = await fetch(`http://localhost:8080/books/${id}`, {
+    const resposta = await fetch(`http://localhost:8081/books/${id}`, {
       method: "DELETE"
     });
 
