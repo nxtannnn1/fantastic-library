@@ -1,0 +1,2 @@
+O Service é onde reside a lógica de negócios da aplicação e algoritmos que ordenam como a interface do usuário opera.
+Por exemplo, a estrutura que valida a criação, remoção, atualização e consulta das entidades, neste caso os livros.
