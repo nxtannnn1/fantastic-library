@@ -24,7 +24,7 @@ public class Book {
     private String year;
 
     @NotBlank(message = "ISBN do livro não pode ser vazio")
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String isbn;
 
     @NotNull(message = "Gênero literário do livro não pode ser vazio")
