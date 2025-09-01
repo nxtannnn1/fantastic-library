@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fantastic Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="apresentacao">
+        <img src="assets/logo.png" alt="Logo da Fantastic Library" />
+      </div>
+
+      <form id="formCadastro" class="formCadastro">
+        <h2>Cadastro de Livros</h2>
+        <input type="text" id="title" placeholder="Título" required />
+        <input type="text" id="author" placeholder="Autor" required />
+        <input type="text" id="isbn" placeholder="ID Internacional" required />
+        <input type="text" id="year" placeholder="Ano de Publicação" required />
+        <select id="category">
+          <option value="NOVEL">Romance</option>
+          <option value="FANTASY">Fantasia</option>
+          <option value="ACTION">Ação</option>
+          <option value="THRILLER">Suspense</option>
+          <option value="ADVENTURE">Aventura</option>
+          <option value="ETC">Outros</option>
+        </select>
+        <button type="submit">Cadastrar Livro</button>
+      </form>
+
+      <div class="listarLivros">
+        <div class="secaoDeListagem">
+          <h2>Lista de Livros</h2>
+          <button type="button" id="atualizarLivros">Atualizar Livros</button>
+        </div>
+        <ul id="lista"></ul>
+      </div>
+
+      <script src="script.js"></script>
+    </main>
+  </body>
+</html>
