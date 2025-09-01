@@ -2,6 +2,7 @@ package com.sistema.Biblioteca.api.mapper;
 
 import com.sistema.Biblioteca.api.dto.BookDTOResponse;
 import com.sistema.Biblioteca.domain.model.Book;
+import com.sistema.Biblioteca.application.formatter.ISBNFormatter;
 
 public class BookDTOResponseMapper { //Mappers servem para converter objetos de um tipo para outro
     //Objetivo: garantir transparência, clareza de código e organização
@@ -30,7 +31,7 @@ public class BookDTOResponseMapper { //Mappers servem para converter objetos de 
             bookDTOResponse.setTitle(book.getTitle());
             bookDTOResponse.setAuthor(book.getAuthor());
             bookDTOResponse.setYear(book.getYear());
-            bookDTOResponse.setIsbn(book.getIsbn());
+            bookDTOResponse.setIsbn(ISBNFormatter.toFormatIsbn(book.getIsbn()));
             bookDTOResponse.setCategory(book.getCategory());
             return bookDTOResponse;
         }

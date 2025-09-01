@@ -23,6 +23,7 @@ public class BookDTOResponse { //DTO's são objetos utilizados para transportar 
     @Column(name = "publish_year", nullable = false)
     private String year;
 
+    @Pattern(regexp = "\\d{13}", message = "ISBN deve ter 13 dígitos")
     @NotBlank(message = "ISBN do livro não pode ser vazio")
     @Column(nullable = false)
     private String isbn;
