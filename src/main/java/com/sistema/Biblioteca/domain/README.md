@@ -1,0 +1,2 @@
+O domain refere-se ao domínio do negócio, ou seja, a área de conhecimento, os processos, as regras e a lógica de um negócio.
+Em vez de focar em detalhes técnicos, o código do domínio representa e simula o mundo real do negócio, com suas entidades, seus fluxos e suas interações. 

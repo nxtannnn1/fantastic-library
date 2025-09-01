@@ -1,0 +1,2 @@
+Uma api é composta por um conjunto de regras e protocolos que permite que diferentes aplicações de software se comuniquem, troquem dados e executem ações de forma estruturada e segura. 
+Ela atua como um intermediário, facilitando a interação entre programas.

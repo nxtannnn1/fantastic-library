@@ -1,0 +1,3 @@
+DTO são Data Transfer Object - Um objeto utilizado para transportar dados entre a API e o banco de dados.
+Nosso projeto utiliza DTO's para garantir que apenas as informações necessárias sejam visíveis, enquanto informações como ID's e senhas, permanecem protegidas.
+Além disso, os DTO's ajudam na mantenabilidade, organização e clareza do código, por separar de forma lúcida as responsabilidades entre as camadas da aplicação.
