@@ -41,6 +41,10 @@ public class BookService {
         String validIsbn = isbnFormatter.toValidIsbn(bookDTORequest.getIsbn());
         bookDTORequest.setIsbn(validIsbn);
 
+        if (bookRepository.existsByIsbn(validIsbn)){
+            throw new IllegalArgumentException("ISBN já existente!");
+        }
+
 
         Book book = BookDTORequestMapper.toEntity(bookDTORequest);
         Book saved = bookRepository.save(book);
@@ -67,6 +71,10 @@ public class BookService {
 
         String validIsbn = isbnFormatter.toValidIsbn(bookDTORequest.getIsbn());
         bookDTORequest.setIsbn(validIsbn);
+
+        if (bookRepository.existsByIsbn(validIsbn)){
+            throw new IllegalArgumentException("ISBN já existente!");
+        }
 
         // Atualiza os campos com os dados do DTORequest
         existingBook.setTitle(bookDTORequest.getTitle());

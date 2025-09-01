@@ -4,5 +4,5 @@ import com.sistema.Biblioteca.domain.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-    //Para inclusão: boolean existsByIsbn(String isbn);
+    boolean existsByIsbn(String isbn);
 }
