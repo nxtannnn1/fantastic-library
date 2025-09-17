@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trashmap_backend
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/trashmap
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: trashmap_frontend
+    ports:
+      - "3000:80" # Nginx serve na porta 80, host usa 3000
+    environment:
+      REACT_APP_API_URL: http://backend:8081
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8.0
+    container_name: trashmap_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: trashmap
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
