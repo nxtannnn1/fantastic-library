@@ -7,9 +7,9 @@ services:
       - "8080:8080"
     environment:
       # Configuração para MySQL
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/Biblioteca
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/fantastic-library
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD:
+      SPRING_DATASOURCE_PASSWORD: NVARL
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
 
       # Descomente abaixo e comente as linhas acima para usar H2
@@ -19,14 +19,15 @@ services:
       # SPRING_DATASOURCE_PASSWORD: ''
       # SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
 
-  database:
+  mysql-db:
     image: mysql:8.0
-    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "NVARL" # Senha para o usuário root
+      MYSQL_DATABASE: "fantastic-library" # Nome do banco de dados a ser criado
+      MYSQL_USER: "WS" # Nome de um novo usuário
+      MYSQL_PASSWORD: "NVARLvsWS" # Senha para este novo usuário
     ports:
       - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE: Biblioteca
     volumes:
       - mysql-data:/var/lib/mysql
 
