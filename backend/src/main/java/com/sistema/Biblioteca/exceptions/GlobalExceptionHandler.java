@@ -1,6 +1,6 @@
-package com.sistema.biblioteca.exceptions;
+package com.sistema.Biblioteca.exceptions;
 
-import com.sistema.Biblioteca.exceptions.BookNotFoundException;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
