@@ -1,3 +1,5 @@
+#DOCKER-COMPOSE-VERSION: '3.8'
+
 services:
   backend:
     build:
@@ -6,26 +8,30 @@ services:
     ports:
       - "8080:8080"
     environment:
-      # Configuração para MySQL
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/fantastic-library
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: NVARL
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/fantastic-library
+      SPRING_DATASOURCE_USERNAME: WS
+      SPRING_DATASOURCE_PASSWORD: NVARLvsWS
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-
-      # Descomente abaixo e comente as linhas acima para usar H2
-      # SPRING_H2_CONSOLE_ENABLED: 'true'
-      # SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
-      # SPRING_DATASOURCE_USERNAME: sa
-      # SPRING_DATASOURCE_PASSWORD: ''
-      # SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+    # --- CORREÇÃO AQUI ---
+    # Agora o backend espera o mysql-db ficar "saudável" antes de iniciar.
+    depends_on:
+      mysql-db:
+        condition: service_healthy
 
   mysql-db:
     image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    # --- CORREÇÃO AQUI ---
+    # Adicionada uma verificação de saúde para saber quando o MySQL está pronto.
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     environment:
-      MYSQL_ROOT_PASSWORD: "NVARL" # Senha para o usuário root
-      MYSQL_DATABASE: "fantastic-library" # Nome do banco de dados a ser criado
-      MYSQL_USER: "WS" # Nome de um novo usuário
-      MYSQL_PASSWORD: "NVARLvsWS" # Senha para este novo usuário
+      MYSQL_ROOT_PASSWORD: "NVARL"
+      MYSQL_DATABASE: "fantastic-library"
+      MYSQL_USER: "WS"
+      MYSQL_PASSWORD: "NVARLvsWS"
     ports:
       - "3306:3306"
     volumes:
@@ -42,3 +48,4 @@ services:
 
 volumes:
   mysql-data:
+
